@@ -1,5 +1,5 @@
 pool:
-  name: 'dev-pool'
+  name: 'new'
   
 variables:
   version: 'frontend_$(Build.BuildId)'
@@ -23,8 +23,8 @@ stages:
     - task: Docker@2
       displayName: 'Build Docker Image'
       inputs:
-        containerRegistry: 'perseverance01'
-        repository: 'perseverance-project'
+        containerRegistry: 'bunny01'
+        repository: 'tharunpatta679'
         command: 'build'
         Dockerfile: '**/Dockerfile'
         tags: |
