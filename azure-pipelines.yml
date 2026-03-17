@@ -23,8 +23,8 @@ stages:
     - task: Docker@2
       displayName: 'Build Docker Image'
       inputs:
-        containerRegistry: 'bunny01'
-        repository: 'tharunpatta679'
+        containerRegistry: 'Docker-connection'
+        repository: 'three tier application-project'
         command: 'build'
         Dockerfile: '**/Dockerfile'
         tags: |
@@ -41,8 +41,8 @@ stages:
     - task: Docker@2
       displayName: 'Push Docker Image' 
       inputs:
-        containerRegistry: 'perseverance01'
-        repository: 'perseverance-project'
+        containerRegistry: 'Docker-connection'
+        repository: 'three tier application-project'
         command: 'push'
         tags: |
           $(version)
