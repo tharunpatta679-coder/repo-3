@@ -23,11 +23,12 @@ stages:
     - task: Docker@2
       displayName: 'Build Docker Image'
       inputs:
-        containerRegistry: 'Docker-connection'
-        repository: 'three tier application-project'
+        containerRegistry: 'bunny01'
+        repository: 'frontend1'
         command: 'build'
         Dockerfile: '**/Dockerfile'
-        tags: |
+        tags:  |
+          latest
           frontend_$(Build.BuildId)
       name: buildImage
 
@@ -41,10 +42,11 @@ stages:
     - task: Docker@2
       displayName: 'Push Docker Image' 
       inputs:
-        containerRegistry: 'Docker-connection'
-        repository: 'three tier application-project'
+        containerRegistry: 'bunny01'
+        repository: 'frontend1'
         command: 'push'
-        tags: |
+        tags:  |
+          latest
           $(version)
 - stage: CleanupDockerImages
   displayName: 'Clean Up Docker Images'
